@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080e1d">
+  <meta name="description" content="رحلة حمزة التباب لتعلم تطوير الواجهات الأمامية باستخدام HTML وCSS وJavaScript وReact، بإشراف المهندس حسن حجار وشركة عقل رقمي.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hamza's Front-End Journey | AQL RAQAMI">
+  <meta property="og:description" content="A bilingual, project-based front-end training journey mentored by Eng. Hasan Hajjar at AQL RAQAMI.">
+  <title>رحلة حمزة في تطوير الواجهات | AQL RAQAMI</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%230d1730'/%3E%3Cpath d='m13 39 12-15 10 9 16-17' fill='none' stroke='%235bdaca' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:dark;--bg:#080e1d;--bg-2:#0c1528;--card:#111c30;--card-2:#16233b;--text:#eff5ff;--muted:#9baec5;--stroke:rgba(161,184,218,.15);--primary:#70e4d4;--secondary:#8797ff;--nav:rgba(8,14,29,.80);--shadow:0 25px 70px rgba(0,0,0,.23);--radius:22px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:95px}
+    body{margin:0;min-width:320px;font-family:Tahoma,'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.85;overflow-x:hidden}
+    body::before{content:"";position:absolute;z-index:-1;inset:0 0 auto;height:950px;background:radial-gradient(ellipse 46% 35% at 15% 8%,rgba(81,91,220,.22),transparent 75%),radial-gradient(ellipse 48% 42% at 90% 25%,rgba(41,177,169,.12),transparent 75%);pointer-events:none}
+    body[data-theme="light"]{color-scheme:light;--bg:#f4f8fd;--bg-2:#e9f0fa;--card:#ffffff;--card-2:#f4f7fc;--text:#14223a;--muted:#64748b;--stroke:rgba(44,72,110,.15);--primary:#087c78;--secondary:#5158c9;--nav:rgba(246,250,255,.9);--shadow:0 25px 70px rgba(47,70,109,.09)}
+    body[data-theme="light"]::before{background:radial-gradient(ellipse 46% 35% at 15% 8%,rgba(108,114,244,.13),transparent 75%),radial-gradient(ellipse 48% 42% at 90% 25%,rgba(32,187,178,.12),transparent 75%)}
+    a{color:inherit;text-decoration:none}button{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--primary);outline-offset:4px}button{cursor:pointer}::selection{background:rgba(112,228,212,.32)}
+    .container{width:min(1170px,calc(100% - 44px));margin-inline:auto}
+    .skip{position:absolute;z-index:50;top:-100px;inset-inline-start:16px;background:var(--card);padding:8px 15px;border-radius:9px}.skip:focus{top:12px}
+    .top-progress{position:fixed;inset:0 auto auto 0;width:0;height:3px;background:linear-gradient(90deg,#70e4d4,#8999ff);z-index:90;pointer-events:none}
+    .site-header{position:sticky;top:0;z-index:30;background:var(--nav);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid var(--stroke)}
+    .nav{height:82px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .brand{display:inline-flex;align-items:center;gap:11px;flex-shrink:0;line-height:1.15}.brand-mark{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;border:1px solid rgba(112,228,212,.5);border-radius:13px;background:linear-gradient(145deg,rgba(112,228,212,.16),rgba(135,151,255,.17));font-size:22px;font-weight:900;color:var(--primary);font-family:Arial,sans-serif}.brand strong{display:block;letter-spacing:.4px;font:800 15px Arial,sans-serif}.brand small{display:block;margin-top:5px;font-size:10px;letter-spacing:1.9px;color:var(--muted);font-family:Arial,sans-serif}
+    .nav-links{display:flex;align-items:center;gap:25px}.nav-links a{font-size:12.5px;color:var(--muted);font-weight:700;transition:color .2s}.nav-links a:hover{color:var(--primary)}
+    .nav-actions{display:flex;align-items:center;gap:9px}.small-btn{display:inline-flex;justify-content:center;align-items:center;gap:6px;border:1px solid var(--stroke);background:var(--card);color:var(--text);border-radius:11px;min-width:42px;height:42px;padding:0 13px;font-size:12px;font-weight:700;transition:transform .2s,border-color .2s}.small-btn:hover,.btn:hover{transform:translateY(-2px);border-color:var(--primary)}.menu-btn{display:none}
+    .hero{padding:91px 0 78px;position:relative}.hero-grid{display:grid;grid-template-columns:1.09fr .91fr;align-items:center;gap:60px}.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;color:var(--primary);border:1px solid rgba(112,228,212,.23);background:rgba(112,228,212,.07);border-radius:999px;padding:7px 13px}.pulse{width:7px;height:7px;display:inline-block;background:var(--primary);border-radius:50%;box-shadow:0 0 0 5px rgba(112,228,212,.11)}
+    h1,h2,h3,p{margin-top:0}h1{font-size:clamp(39px,5vw,69px);line-height:1.35;letter-spacing:-1.5px;margin:27px 0 19px;font-weight:900}.gradient-text{display:block;background:linear-gradient(105deg,var(--primary),#83a5ff 68%,#baa2ff);-webkit-background-clip:text;background-clip:text;color:transparent}body[data-theme="light"] .gradient-text{background-image:linear-gradient(105deg,#077b75,#5658c7)}
+    .hero-description{font-size:15px;line-height:2.15;color:var(--muted);max-width:600px}.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin:29px 0 29px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;padding:12px 21px;min-height:48px;border:1px solid transparent;border-radius:12px;font-weight:800;font-size:13px;transition:transform .2s,border-color .2s,background .2s}.btn-primary{background:linear-gradient(120deg,#65dfcd,#85c5e9);color:#06222a}.btn-outline{background:var(--card);border-color:var(--stroke);color:var(--text)}.btn svg{height:16px;width:16px;fill:currentColor}
+    .hero-pills{display:flex;flex-wrap:wrap;gap:8px}.pill{font-family:Arial,sans-serif;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;border:1px solid var(--stroke);padding:7px 10px;border-radius:8px;background:var(--card)}.pill i{width:7px;height:7px;border-radius:2px;display:inline-block}.html i{background:#f16a42}.css i{background:#459eff}.js i{background:#efd34a}.react i{background:#68d6ea}
+    .hero-visual{position:relative;min-width:0}.hero-visual::before{content:"";position:absolute;inset:8% 5%;border-radius:50%;background:#5b6ef0;filter:blur(95px);opacity:.18;pointer-events:none}.editor{position:relative;background:#0e1627;border:1px solid rgba(170,196,240,.23);border-radius:18px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.34);direction:ltr;text-align:left;transform:rotate(-1deg)}.editor-bar{display:flex;align-items:center;gap:7px;background:#151f33;padding:14px 18px;border-bottom:1px solid rgba(170,196,240,.13)}.dot{width:10px;height:10px;border-radius:100%}.dot:nth-child(1){background:#ff6774}.dot:nth-child(2){background:#f7bd58}.dot:nth-child(3){background:#5fd2a7}.file-label{font:12px Consolas,monospace;color:#aab7ce;margin-left:13px}.editor-body{padding:25px 21px 18px;min-height:262px;overflow:auto}.editor pre{margin:0;font:clamp(11px,1.12vw,14px)/2.12 Consolas,'Courier New',monospace;white-space:pre}.syntax-a{color:#b3a7ff}.syntax-b{color:#75dbcf}.syntax-c{color:#f8c977}.syntax-d{color:#b1c5e8}.syntax-e{color:#92baff}.editor-bottom{border-top:1px solid rgba(170,196,240,.1);padding:11px 18px;display:flex;justify-content:space-between;color:#a2b5ce;font:11px Consolas,monospace}.floating-note{position:absolute;z-index:2;inset-inline-end:-24px;bottom:-27px;max-width:220px;display:flex;align-items:center;gap:10px;background:#202d49;color:#f0f5ff;border:1px solid rgba(170,196,240,.28);border-radius:12px;padding:12px 15px;box-shadow:0 17px 35px rgba(0,0,0,.22);direction:ltr;text-align:left;font:700 11px Arial,sans-serif}.floating-note span{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:9px;background:rgba(112,228,212,.14);color:#70e4d4;font-size:18px}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:90px}.metric{border:1px solid var(--stroke);background:rgba(127,159,211,.045);border-radius:15px;padding:17px;text-align:center}.metric b{display:block;font:900 30px Arial,sans-serif;color:var(--text)}.metric span{font-size:12px;color:var(--muted)}
+    section.content-section{padding:93px 0}.section-top{margin-bottom:31px}.section-kicker{display:block;font:800 11px Arial,sans-serif;letter-spacing:2.4px;color:var(--primary);margin-bottom:12px}.section-top h2,.section-heading{font-size:clamp(27px,3vw,40px);line-height:1.5;letter-spacing:-.5px;margin-bottom:8px;font-weight:900}.section-top p{color:var(--muted);max-width:700px;font-size:14px;line-height:2.1}.section-alt{background:var(--bg-2);border-block:1px solid var(--stroke)}
+    .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);padding:23px;transition:transform .22s,border-color .22s}.card:hover{transform:translateY(-5px);border-color:rgba(112,228,212,.42)}.benefit-icon{width:45px;height:45px;display:grid;place-items:center;background:rgba(112,228,212,.09);border-radius:12px;border:1px solid rgba(112,228,212,.16);color:var(--primary);font:900 22px Arial,sans-serif}.card h3{font-size:17px;margin:17px 0 6px}.card p{font-size:12.5px;color:var(--muted);line-height:2.05;margin-bottom:0}
+    .roadmap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;counter-reset:phase}.phase{display:flex;gap:18px;align-items:flex-start}.phase-number{display:grid;place-items:center;flex-shrink:0;width:48px;height:48px;border-radius:13px;border:1px solid rgba(112,228,212,.22);background:rgba(112,228,212,.09);font:800 16px Arial,sans-serif;color:var(--primary)}.phase-main{flex:1;min-width:0}.phase h3{font-size:16px;margin:0 0 6px}.phase p{color:var(--muted);font-size:12.5px;margin:0 0 13px;line-height:2}.tag-list{display:flex;flex-wrap:wrap;gap:6px}.tag{border-radius:6px;padding:3px 8px;background:var(--card-2);border:1px solid var(--stroke);font:700 10px/1.8 Arial,sans-serif;color:var(--muted)}.roadmap-note{margin:24px 0 0;padding:13px 17px;border-inline-start:3px solid var(--primary);color:var(--muted);font-size:12px;background:rgba(112,228,212,.045);border-radius:7px}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.skill{text-align:center;padding:30px 13px}.skill-logo{width:72px;height:72px;border-radius:19px;display:grid;place-items:center;margin:0 auto 16px;font:900 25px Arial,sans-serif}.skill-html{background:rgba(241,106,66,.12);color:#f17d58}.skill-css{background:rgba(69,158,255,.13);color:#4d9dff}.skill-js{background:rgba(240,204,65,.12);color:#e9c63c}.skill-react{background:rgba(76,201,235,.12);color:#4cc9eb}.skill h3{font-size:16px;margin:0 0 3px;direction:ltr;font-family:Arial,sans-serif}.skill p{font-size:12px;color:var(--muted);margin:0}
+    .workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.workflow-step{position:relative;padding:18px}.workflow-n{font:900 28px Arial,sans-serif;color:var(--primary);opacity:.85}.workflow-step h3{font-size:15px;margin:8px 0 6px}.workflow-step p{font-size:12px;color:var(--muted);margin:0}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}.highlight-card{border:1px solid var(--stroke);border-radius:var(--radius);background:var(--card);padding:32px;position:relative;overflow:hidden}.highlight-card::after{content:"";position:absolute;z-index:0;width:190px;height:190px;inset:auto auto -100px -75px;background:var(--primary);filter:blur(100px);opacity:.13;pointer-events:none}.highlight-card>*{position:relative;z-index:1}.highlight-card h3{font-size:23px;line-height:1.55;margin-bottom:12px}.highlight-card p{color:var(--muted);font-size:13px;line-height:2.15}.status-label{display:inline-flex;gap:7px;align-items:center;background:rgba(112,228,212,.1);color:var(--primary);border:1px solid rgba(112,228,212,.22);border-radius:999px;padding:5px 11px;font-size:11px;font-weight:800;margin-bottom:18px}.roles{display:grid;grid-template-columns:1fr 1fr;gap:15px}.role{display:flex;align-items:flex-start;gap:14px}.avatar{width:53px;height:53px;flex-shrink:0;border-radius:15px;display:grid;place-items:center;font:900 20px Arial,sans-serif;background:linear-gradient(135deg,rgba(112,228,212,.2),rgba(135,151,255,.2));border:1px solid var(--stroke);color:var(--primary)}.role h3{margin:0;font-size:16px}.role .role-title{color:var(--primary);font-size:11px;font-weight:800;display:block;margin-bottom:6px}.role p{font-size:12px;color:var(--muted);margin:0}
+    .certificate{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.certificate-preview{border:1px solid rgba(112,228,212,.35);border-radius:18px;padding:8px;background:linear-gradient(135deg,rgba(112,228,212,.06),rgba(135,151,255,.07));box-shadow:var(--shadow);transform:rotate(-1deg)}.certificate-paper{border:1px solid var(--stroke);background:var(--card);text-align:center;border-radius:11px;padding:37px 20px 31px;position:relative;overflow:hidden}.certificate-paper::before,.certificate-paper::after{content:"";position:absolute;width:145px;height:145px;border:1px solid var(--stroke);transform:rotate(45deg)}.certificate-paper::before{top:-100px;left:-70px}.certificate-paper::after{bottom:-100px;right:-70px}.certificate-paper .cert-icon{font-size:35px;color:var(--primary);line-height:1}.certificate-paper .cert-overline{font:800 11px Arial,sans-serif;letter-spacing:3px;color:var(--primary);margin:12px 0}.certificate-paper h3{font:900 clamp(21px,2.7vw,35px)/1.3 Georgia,serif;direction:ltr;margin:10px 0;color:var(--text)}.certificate-paper .cert-sub{font-size:12px;color:var(--muted)}.certificate-paper .cert-line{margin:23px auto 16px;width:52%;height:1px;background:var(--stroke)}.certificate-paper .cert-brand{font:900 13px Arial,sans-serif;letter-spacing:1.4px}.certificate-paper .cert-draft{display:inline-block;margin-top:16px;font:800 10px Arial,sans-serif;letter-spacing:2px;color:var(--muted);border:1px dashed var(--stroke);padding:4px 10px;border-radius:6px}
+    .faq-list{display:grid;gap:12px;max-width:850px;margin:auto}.faq-item{border:1px solid var(--stroke);background:var(--card);border-radius:14px;overflow:hidden}.faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;gap:15px;text-align:start;border:0;background:transparent;color:var(--text);padding:18px 21px;font-weight:800;font-size:13px}.faq-question .chevron{font:700 20px Arial,sans-serif;color:var(--primary);transition:transform .2s}.faq-question[aria-expanded="true"] .chevron{transform:rotate(45deg)}.faq-answer{border-top:1px solid var(--stroke);padding:13px 21px 19px;color:var(--muted);font-size:13px;line-height:2}.faq-answer[hidden]{display:none}
+    .cta-band{background:linear-gradient(125deg,rgba(112,228,212,.12),rgba(133,146,255,.13));border:1px solid rgba(112,228,212,.18);border-radius:24px;padding:35px;display:flex;align-items:center;justify-content:space-between;gap:24px}.cta-band h2{font-size:25px;line-height:1.5;margin:0 0 7px}.cta-band p{color:var(--muted);font-size:13px;margin:0}
+    .footer{padding:32px 0;border-top:1px solid var(--stroke)}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer p{font-size:12px;color:var(--muted);margin:0}.footer-links{display:flex;gap:20px;align-items:center}.footer-links a{color:var(--muted);font-size:12px;font-weight:800}.footer-links a:hover{color:var(--primary)}
+    .js-enabled .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s,transform .65s}.js-enabled .reveal.visible{opacity:1;transform:none}
+    [hidden]{display:none!important}
+    @media(max-width:1060px){.hero-grid{gap:28px}.nav-links{gap:14px}.nav-links a{font-size:11px}.benefits{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:780px){.nav{height:73px}.menu-btn{display:inline-flex}.nav-links{display:none;position:absolute;top:73px;inset-inline:0;background:var(--nav);backdrop-filter:blur(24px);padding:18px 22px 22px;border-bottom:1px solid var(--stroke);box-shadow:0 20px 40px rgba(0,0,0,.13);flex-direction:column;align-items:stretch;gap:7px}.nav-links.open{display:flex}.nav-links a{font-size:14px;padding:10px 5px}.hero{padding:65px 0 55px}.hero-grid,.split,.certificate{grid-template-columns:1fr}.hero-visual{max-width:570px;width:100%;margin:25px auto 0}.metrics{margin-top:75px}.roadmap{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:repeat(2,1fr)}.roles{grid-template-columns:1fr 1fr}.cta-band{align-items:flex-start;flex-direction:column}.floating-note{inset-inline-end:-3px}.certificate-preview{max-width:570px;width:100%;margin:5px auto 0}section.content-section{padding:68px 0}}
+    @media(max-width:480px){.container{width:min(100% - 30px,1170px)}.brand-mark{width:38px;height:38px}.brand strong{font-size:12px}.brand small{font-size:8px}.nav-actions{gap:5px}.small-btn{height:39px;min-width:36px;padding:0 9px}.lang-switch{font-size:11px}.hero{padding-top:48px}h1{font-size:37px;letter-spacing:-1px}.hero-description{font-size:13px}.hero-actions .btn{width:100%}.editor pre{font-size:10px}.editor-body{padding:14px 11px;min-height:222px}.editor-bar{padding:12px}.floating-note{bottom:-26px}.metrics{grid-template-columns:repeat(2,1fr);margin-top:70px}.benefits,.skills,.workflow,.roles{grid-template-columns:1fr}.phase{gap:12px}.phase-number{width:40px;height:40px;font-size:14px}.card{padding:19px}.skill{padding:25px}.highlight-card{padding:24px}.cta-band{padding:23px}.footer-inner{align-items:flex-start;flex-direction:column;gap:13px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js-enabled .reveal{opacity:1;transform:none;transition:none}.btn,.card,.small-btn,.faq-question .chevron{transition:none}}
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="top-progress" id="topProgress" aria-hidden="true"></div>
+  <a href="#main" class="skip" data-t="skip">تجاوز إلى المحتوى</a>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="AQL RAQAMI - Home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span><strong>AQL RAQAMI</strong><small>SOFTWARE &amp; TRAINING</small></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-t="navAbout">عن المسار</a>
+        <a href="#roadmap" data-t="navRoadmap">الخطة التدريبية</a>
+        <a href="#technologies" data-t="navTech">التقنيات</a>
+        <a href="#mentorship" data-t="navPeople">الإشراف</a>
+        <a href="#faq" data-t="navFaq">الأسئلة الشائعة</a>
+      </div>
+      <div class="nav-actions">
+        <button type="button" class="small-btn lang-switch" id="langButton" aria-label="Switch language">English</button>
+        <button type="button" class="small-btn" id="themeButton" aria-label="تبديل المظهر" title="تبديل المظهر"><span id="themeIcon" aria-hidden="true">☀</span></button>
+        <button type="button" class="small-btn menu-btn" id="menuButton" aria-controls="navLinks" aria-expanded="false" aria-label="فتح القائمة"><span aria-hidden="true">☰</span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-t="heroEyebrow">رحلة تدريبية عملية • قيد التنفيذ</span></div>
+            <h1><span data-t="heroTitle1">من أول سطر كود</span><span class="gradient-text" data-t="heroTitle2">إلى تطبيق ويب احترافي.</span></h1>
+            <p class="hero-description" data-t="heroDesc">رحلة حمزة التباب لتعلم تطوير الواجهات الأمامية، خطوة بخطوة عبر HTML وCSS وJavaScript وReact، بإشراف المهندس حسن حجار من شركة عقل رقمي. نتعلّم، نطبّق، نبني، ونطوّر.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#roadmap"><span data-t="explore">استكشف المسار التدريبي</span><span aria-hidden="true">↗</span></a>
+              <a class="btn btn-outline" href="https://github.com/Eng-Hasan-Hajjar" data-repo-link target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.82c.56.1.77-.24.77-.54v-2.12c-3.13.68-3.8-1.33-3.8-1.33-.51-1.29-1.25-1.64-1.25-1.64-1.02-.7.08-.68.08-.68 1.13.08 1.73 1.16 1.73 1.16 1.01 1.73 2.65 1.23 3.3.94.1-.73.39-1.23.71-1.51-2.5-.29-5.13-1.25-5.13-5.57 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.09 1.15a10.75 10.75 0 0 1 5.62 0c2.14-1.45 3.09-1.15 3.09-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.33-2.64 5.28-5.15 5.56.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg><span data-t="repoButton">المستودع على GitHub</span></a>
+            </div>
+            <div class="hero-pills" aria-label="Core technologies"><span class="pill html"><i></i>HTML5</span><span class="pill css"><i></i>CSS3</span><span class="pill js"><i></i>JavaScript</span><span class="pill react"><i></i>React</span></div>
+          </div>
+          <div class="hero-visual" aria-label="Illustrative code editor">
+            <div class="editor">
+              <div class="editor-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="file-label">learning-journey.js</span></div>
+              <div class="editor-body"><pre><span class="syntax-a">const</span> <span class="syntax-e">trainee</span> = {
+  <span class="syntax-b">name</span>: <span class="syntax-c">"Hamza Al-Tabbab"</span>,
+  <span class="syntax-b">track</span>: <span class="syntax-c">"Front-End"</span>,
+  <span class="syntax-b">skills</span>: [
+    <span class="syntax-c">"HTML"</span>, <span class="syntax-c">"CSS"</span>,
+    <span class="syntax-c">"JavaScript"</span>, <span class="syntax-c">"React"</span>
+  ],
+  <span class="syntax-b">mindset</span>: <span class="syntax-c">"Keep building!"</span>
+};
+
+<span class="syntax-a">const</span> <span class="syntax-e">journey</span> = <span class="syntax-d">(learn) =&gt;</span>
+  learn.<span class="syntax-b">practice</span>().<span class="syntax-b">build</span>();</pre></div>
+              <div class="editor-bottom"><span>● JavaScript</span><span>UTF-8 &nbsp; ✓ Ready to learn</span></div>
+            </div>
+            <div class="floating-note"><span>✓</span><div>LEARN • CODE • BUILD<br><small style="color:#a5bad7;font-size:10px;font-weight:normal">AQL RAQAMI Training</small></div></div>
+          </div>
+        </div>
+        <div class="metrics reveal">
+          <div class="metric"><b>07</b><span data-t="metricPhases">مراحل تدريبية</span></div>
+          <div class="metric"><b>04</b><span data-t="metricTech">تقنيات محورية</span></div>
+          <div class="metric"><b>01</b><span data-t="metricProject">مشروع نهائي مخطط</span></div>
+          <div class="metric"><b>∞</b><span data-t="metricGrowth">فرص للتطور</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section-alt" id="about">
+      <div class="container">
+        <div class="section-top reveal"><span class="section-kicker">ABOUT THE PROGRAM</span><h2 data-t="aboutTitle">أكثر من مجرد دورة برمجة</h2><p data-t="aboutDesc">برنامج تدريبي متعدد الجلسات يجمع بين الفهم النظري والتطبيق العملي، بهدف بناء أساس قوي في تطوير الواجهات وتجهيز الطالب لتنفيذ مشاريع حقيقية بأسلوب احترافي.</p></div>
+        <div class="benefits" id="benefits"></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="roadmap">
+      <div class="container">
+        <div class="section-top reveal"><span class="section-kicker">LEARNING ROADMAP</span><h2 data-t="roadmapTitle">خريطة التعلّم: 7 مراحل مترابطة</h2><p data-t="roadmapDesc">ننتقل من أساسيات الويب إلى تطوير تطبيقات تفاعلية باستخدام React، ثم نطبّق المعرفة في مشروع نهائي متكامل.</p></div>
+        <div class="roadmap" id="roadmapCards"></div>
+        <p class="roadmap-note" data-t="roadmapNote">ملاحظة: تمثل هذه المراحل الخطة التدريبية، وليست إعلانًا عن إنجاز جميع المراحل. يمكن تطوير الخطة وعدد الجلسات وفق تقدم المتدرب.</p>
+      </div>
+    </section>
+
+    <section class="content-section section-alt" id="technologies">
+      <div class="container">
+        <div class="section-top reveal"><span class="section-kicker">TECHNOLOGY STACK</span><h2 data-t="skillsTitle">التقنيات التي سنعمل عليها</h2><p data-t="skillsDesc">أربع تقنيات أساسية نستخدمها لبناء صفحات متجاوبة، وتجارب تفاعلية، وتطبيقات حديثة قابلة للتوسّع.</p></div>
+        <div class="skills">
+          <article class="card skill reveal"><div class="skill-logo skill-html">H5</div><h3>HTML5</h3><p data-t="htmlDesc">الهيكل والمحتوى الدلالي</p></article>
+          <article class="card skill reveal"><div class="skill-logo skill-css">C3</div><h3>CSS3</h3><p data-t="cssDesc">التصميم والحركة والتجاوب</p></article>
+          <article class="card skill reveal"><div class="skill-logo skill-js">JS</div><h3>JavaScript</h3><p data-t="jsDesc">المنطق والتفاعل والبيانات</p></article>
+          <article class="card skill reveal"><div class="skill-logo skill-react">⚛</div><h3>React</h3><p data-t="reactDesc">المكونات والتطبيقات الحديثة</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="methodology">
+      <div class="container">
+        <div class="section-top reveal"><span class="section-kicker">HOW WE LEARN</span><h2 data-t="methodTitle">المنهجية: نفهم ثم نبني</h2><p data-t="methodDesc">كل مفهوم جديد يمر عبر دورة تعلم مدروسة؛ من الشرح والتجريب إلى مراجعة الحلول وتوثيق الإنجاز على GitHub.</p></div>
+        <div class="workflow" id="workflowCards"></div>
+      </div>
+    </section>
+
+    <section class="content-section section-alt" id="project">
+      <div class="container split">
+        <article class="highlight-card reveal">
+          <span class="status-label"><span class="pulse" aria-hidden="true"></span><span data-t="projectStatus">الفكرة قيد الاختيار</span></span>
+          <h3 data-t="projectTitle">مشروع ختامي يروي قصة التعلّم</h3>
+          <p data-t="projectDesc">سنعتمد فكرة المشروع النهائي لاحقًا، بحيث تتيح تطبيق المفاهيم والمهارات المكتسبة في HTML وCSS وJavaScript وReact. سيتم نشر التحديثات وأعمال التطوير عبر المستودع.</p>
+          <a href="https://github.com/Eng-Hasan-Hajjar" data-repo-link class="btn btn-outline"><span data-t="followProject">تابع تقدم المشروع</span><span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="highlight-card reveal" id="mentorship">
+          <span class="section-kicker">MENTORSHIP &amp; CREDITS</span>
+          <h3 data-t="peopleTitle">بتوجيه هندسي وتطبيق عملي</h3>
+          <p data-t="peopleDesc">رحلة تعليمية شخصية تجمع بين خبرة المشرف واجتهاد الطالب، ضمن البيئة التدريبية لشركة عقل رقمي.</p>
+          <div class="roles">
+            <div class="role"><div class="avatar">HH</div><div><span class="role-title" data-t="mentorRole">المدرب والمشرف الهندسي</span><h3 data-t="mentorName">المهندس حسن حجار</h3><p data-t="mentorDesc">مؤسس ومدير شركة عقل رقمي</p></div></div>
+            <div class="role"><div class="avatar">HT</div><div><span class="role-title" data-t="studentRole">الطالب والمتدرب</span><h3 data-t="studentName">حمزة التباب</h3><p data-t="studentDesc">متدرب في مسار Front-End</p></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="certificate">
+      <div class="container certificate">
+        <div class="reveal"><span class="section-kicker">TRAINING CERTIFICATE</span><h2 class="section-heading" data-t="certTitle">تعلم موثّق وتقييم عملي</h2><p style="color:var(--muted);font-size:14px;line-height:2.25" data-t="certDesc">عند استكمال المتطلبات التدريبية والتطبيقات العملية واجتياز تقييم المشروع النهائي، يمكن منح شهادة إتمام تدريب ومهارات عملية من شركة عقل رقمي (AQL RAQAMI). تُوثّق الشهادة التدريب الذي تم إنجازه والمهارات التي جرى تقييمها، ولا تمثل بمفردها خبرة توظيفية.</p></div>
+        <div class="certificate-preview reveal" aria-label="Illustrative certificate preview"><div class="certificate-paper"><div class="cert-icon">✧</div><p class="cert-overline">AQL RAQAMI</p><h3>Certificate of Training</h3><p class="cert-sub" data-t="certificateSub">نموذج توضيحي لشهادة إتمام التدريب</p><div class="cert-line"></div><span class="cert-brand">FRONT-END DEVELOPMENT</span><div><span class="cert-draft" data-t="certificateSample">SAMPLE • NOT ISSUED</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="content-section section-alt" id="faq">
+      <div class="container"><div class="section-top reveal" style="text-align:center"><span class="section-kicker">FREQUENTLY ASKED QUESTIONS</span><h2 data-t="faqTitle">أسئلة شائعة عن المسار</h2><p data-t="faqDesc" style="margin-inline:auto">إجابات سريعة حول محتوى التدريب وآلية المتابعة والمخرجات المتوقعة.</p></div><div class="faq-list" id="faqList"></div></div>
+    </section>
+
+    <section class="content-section">
+      <div class="container"><div class="cta-band reveal"><div><h2 data-t="ctaTitle">كل مشروع رائع يبدأ بخطوة.</h2><p data-t="ctaDesc">تابع رحلة حمزة، واطّلع على التمارين والتحديثات والمشاريع القادمة مباشرةً من GitHub.</p></div><a class="btn btn-primary" href="https://github.com/Eng-Hasan-Hajjar" data-repo-link target="_blank" rel="noopener noreferrer"><span data-t="ctaButton">زيارة المستودع</span><span aria-hidden="true">↗</span></a></div></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><div><a href="#home" class="brand"><span class="brand-mark" aria-hidden="true">A</span><span><strong>AQL RAQAMI</strong><small>SOFTWARE &amp; TRAINING</small></span></a><p style="margin-top:12px" data-t="footerNote">رحلة تدريبية بإشراف المهندس حسن حجار • الطالب حمزة التباب</p></div><div><div class="footer-links"><a href="https://github.com/Eng-Hasan-Hajjar" target="_blank" rel="noopener noreferrer">GitHub</a><a href="#roadmap" data-t="footerRoadmap">الخطة التدريبية</a><a href="#home" data-t="backTop">إلى الأعلى ↑</a></div><p style="margin-top:14px">© <span id="year">2026</span> AQL RAQAMI. <span data-t="rights">جميع الحقوق محفوظة.</span></p></div></div></footer>
+
+  <script>
+    (() => {
+      'use strict';
+      document.body.classList.add('js-enabled');
+      // عند النشر على GitHub Pages يُكتشف اسم المستودع تلقائيًا من الرابط.
+      // عند فتح الملف محليًا يُستخدم الاسم الافتراضي التالي؛ غيّره إذا لزم الأمر.
+      const GITHUB_OWNER = 'Eng-Hasan-Hajjar';
+      const DEFAULT_REPOSITORY = 'Front-End-Hamza-website';
+      const isGithubPages = location.hostname.toLowerCase().endsWith('.github.io');
+      const pathRepository = isGithubPages ? decodeURIComponent(location.pathname.split('/').filter(Boolean)[0] || '') : '';
+      const repository = pathRepository || DEFAULT_REPOSITORY;
+      const repositoryUrl = `https://github.com/${encodeURIComponent(GITHUB_OWNER)}/${encodeURIComponent(repository)}`;
+      document.querySelectorAll('[data-repo-link]').forEach(link => { link.href = repositoryUrl; link.target = '_blank'; link.rel = 'noopener noreferrer'; });
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+
+      const i18n = {
+        ar: {
+          title:'رحلة حمزة في تطوير الواجهات | AQL RAQAMI', description:'رحلة حمزة التباب لتعلم تطوير الواجهات الأمامية باستخدام HTML وCSS وJavaScript وReact، بإشراف المهندس حسن حجار وشركة عقل رقمي.',
+          skip:'تجاوز إلى المحتوى', navAbout:'عن المسار',navRoadmap:'الخطة التدريبية',navTech:'التقنيات',navPeople:'الإشراف',navFaq:'الأسئلة الشائعة',
+          heroEyebrow:'رحلة تدريبية عملية • قيد التنفيذ',heroTitle1:'من أول سطر كود',heroTitle2:'إلى تطبيق ويب احترافي.',heroDesc:'رحلة حمزة التباب لتعلم تطوير الواجهات الأمامية، خطوة بخطوة عبر HTML وCSS وJavaScript وReact، بإشراف المهندس حسن حجار من شركة عقل رقمي. نتعلّم، نطبّق، نبني، ونطوّر.',explore:'استكشف المسار التدريبي',repoButton:'المستودع على GitHub',
+          metricPhases:'مراحل تدريبية',metricTech:'تقنيات محورية',metricProject:'مشروع نهائي مخطط',metricGrowth:'فرص للتطور',
+          aboutTitle:'أكثر من مجرد دورة برمجة',aboutDesc:'برنامج تدريبي متعدد الجلسات يجمع بين الفهم النظري والتطبيق العملي، بهدف بناء أساس قوي في تطوير الواجهات وتجهيز الطالب لتنفيذ مشاريع حقيقية بأسلوب احترافي.',
+          roadmapTitle:'خريطة التعلّم: 7 مراحل مترابطة',roadmapDesc:'ننتقل من أساسيات الويب إلى تطوير تطبيقات تفاعلية باستخدام React، ثم نطبّق المعرفة في مشروع نهائي متكامل.',roadmapNote:'ملاحظة: تمثل هذه المراحل الخطة التدريبية، وليست إعلانًا عن إنجاز جميع المراحل. يمكن تطوير الخطة وعدد الجلسات وفق تقدم المتدرب.',
+          skillsTitle:'التقنيات التي سنعمل عليها',skillsDesc:'أربع تقنيات أساسية نستخدمها لبناء صفحات متجاوبة، وتجارب تفاعلية، وتطبيقات حديثة قابلة للتوسّع.',htmlDesc:'الهيكل والمحتوى الدلالي',cssDesc:'التصميم والحركة والتجاوب',jsDesc:'المنطق والتفاعل والبيانات',reactDesc:'المكونات والتطبيقات الحديثة',
+          methodTitle:'المنهجية: نفهم ثم نبني',methodDesc:'كل مفهوم جديد يمر عبر دورة تعلم مدروسة؛ من الشرح والتجريب إلى مراجعة الحلول وتوثيق الإنجاز على GitHub.',
+          projectStatus:'الفكرة قيد الاختيار',projectTitle:'مشروع ختامي يروي قصة التعلّم',projectDesc:'سنعتمد فكرة المشروع النهائي لاحقًا، بحيث تتيح تطبيق المفاهيم والمهارات المكتسبة في HTML وCSS وJavaScript وReact. سيتم نشر التحديثات وأعمال التطوير عبر المستودع.',followProject:'تابع تقدم المشروع',
+          peopleTitle:'بتوجيه هندسي وتطبيق عملي',peopleDesc:'رحلة تعليمية شخصية تجمع بين خبرة المشرف واجتهاد الطالب، ضمن البيئة التدريبية لشركة عقل رقمي.',mentorRole:'المدرب والمشرف الهندسي',mentorName:'المهندس حسن حجار',mentorDesc:'مؤسس ومدير شركة عقل رقمي',studentRole:'الطالب والمتدرب',studentName:'حمزة التباب',studentDesc:'متدرب في مسار Front-End',
+          certTitle:'تعلم موثّق وتقييم عملي',certDesc:'عند استكمال المتطلبات التدريبية والتطبيقات العملية واجتياز تقييم المشروع النهائي، يمكن منح شهادة إتمام تدريب ومهارات عملية من شركة عقل رقمي (AQL RAQAMI). تُوثّق الشهادة التدريب الذي تم إنجازه والمهارات التي جرى تقييمها، ولا تمثل بمفردها خبرة توظيفية.',certificateSub:'نموذج توضيحي لشهادة إتمام التدريب',certificateSample:'نموذج توضيحي • غير صادرة',
+          faqTitle:'أسئلة شائعة عن المسار',faqDesc:'إجابات سريعة حول محتوى التدريب وآلية المتابعة والمخرجات المتوقعة.',
+          ctaTitle:'كل مشروع رائع يبدأ بخطوة.',ctaDesc:'تابع رحلة حمزة، واطّلع على التمارين والتحديثات والمشاريع القادمة مباشرةً من GitHub.',ctaButton:'زيارة المستودع',
+          footerNote:'رحلة تدريبية بإشراف المهندس حسن حجار • الطالب حمزة التباب',footerRoadmap:'الخطة التدريبية',backTop:'إلى الأعلى ↑',rights:'جميع الحقوق محفوظة.',
+          benefits:[
+            ['⌘','التعلّم بالتطبيق','نحوّل المفاهيم إلى تمارين وصفحات وتطبيقات عملية قابلة للتطوير.'],
+            ['{ }','مراجعة الشيفرة','نتعلّم أساليب كتابة كود واضح، وتصحيح الأخطاء وتحسين الحلول.'],
+            ['↗','مراحل متدرجة','نبدأ بالمبادئ ثم ننتقل خطوة بخطوة إلى مفاهيم أكثر تقدمًا.'],
+            ['⑂','توثيق GitHub','تاريخ واضح للتمارين والتعديلات والمشاريع مع تقدم التدريب.']
+          ],
+          roadmap:[
+            ['أساسيات الويب وHTML','الإنترنت، VS Code، HTML5، العناصر الدلالية، الروابط، الجداول والنماذج.',['HTML5','Semantic HTML','Forms']],
+            ['CSS والتصميم المتجاوب','نموذج الصندوق، الألوان والخطوط، Flexbox، Grid، Media Queries والحركات.',['CSS3','Flexbox','Grid']],
+            ['أساسيات JavaScript','المتغيرات، أنواع البيانات، الشروط، الحلقات، الدوال، المصفوفات والكائنات.',['ES6+','Functions','Objects']],
+            ['JavaScript في المتصفح','DOM، الأحداث، التحقق من النماذج، Fetch API، وasync/await.',['DOM','Events','APIs']],
+            ['بناء الواجهات باستخدام React','JSX، المكونات، Props، State، Hooks، النماذج والتنقل.',['React','Components','Hooks']],
+            ['أدوات العمل الاحترافي','Git/GitHub، DevTools، سهولة الوصول، الأداء، الاختبار والنشر.',['Git','GitHub','Deployment']],
+            ['المشروع النهائي المتكامل','تحليل الفكرة، التخطيط، التصميم، التطوير، الاختبار، التوثيق والنشر.',['Capstone','Portfolio','Launch']]
+          ],
+          workflow:[['تعلّم','فهم الفكرة واستكشاف الأمثلة.'],['طبّق','تنفيذ تمارين بشكل مستقل.'],['ابنِ','تطوير مكونات ومشاريع عملية.'],['راجع','تحسين الشيفرة وفق الملاحظات.'],['وثّق','حفظ التقدم عبر GitHub.']],
+          faqs:[
+            ['لمن صُمم هذا الموقع؟','هذا الموقع يوثّق مسارًا تدريبيًا للطالب حمزة التباب بإشراف المهندس حسن حجار، ويعرض الأهداف والخطة والتقنيات والمشاريع المخطط لها.'],
+            ['هل اكتملت جميع المراحل؟','لا. يعرض الموقع خريطة التعلم المخططة؛ أما الأعمال المنجزة فتظهر تدريجيًا ضمن المستودع وملف README وسجل التحديثات.'],
+            ['هل المشروع النهائي محدد؟','لم يتم اعتماد الفكرة النهائية بعد؛ سيتم اختيار فكرة مناسبة لأهداف التدريب ونشر التفاصيل عند الاتفاق عليها.'],
+            ['هل تُمنح شهادة تدريب؟','يمكن منح شهادة إتمام تدريب ومهارات عملية من عقل رقمي بعد استكمال المتطلبات والتقييم، وهي توثيق للتدريب وليست إثباتًا لخبرة وظيفية.']
+          ],
+          switchLabel:'Switch to English',themeLabel:'تبديل المظهر',menuOpen:'فتح القائمة',menuClose:'إغلاق القائمة'
+        },
+        en: {
+          title:"Hamza's Front-End Development Journey | AQL RAQAMI",description:"Hamza Al-Tabbab's project-based front-end development journey in HTML, CSS, JavaScript, and React, mentored by Eng. Hasan Hajjar at AQL RAQAMI.",
+          skip:'Skip to content',navAbout:'About',navRoadmap:'Roadmap',navTech:'Technologies',navPeople:'Mentorship',navFaq:'FAQ',
+          heroEyebrow:'A hands-on learning journey • In progress',heroTitle1:'From your first line of code',heroTitle2:'to professional web apps.',heroDesc:"Follow Hamza Al-Tabbab's front-end learning journey through HTML, CSS, JavaScript, and React, mentored by Eng. Hasan Hajjar at AQL RAQAMI. Learn, practice, build, and improve—one step at a time.",explore:'Explore the roadmap',repoButton:'View GitHub repository',
+          metricPhases:'Learning phases',metricTech:'Core technologies',metricProject:'Planned capstone',metricGrowth:'Opportunities to grow',
+          aboutTitle:'More than a coding course',aboutDesc:'A multi-session, project-based training program combining solid fundamentals and hands-on practice to help the learner develop professional front-end development skills.',
+          roadmapTitle:'The learning roadmap: 7 phases',roadmapDesc:'We move from the web fundamentals to interactive React applications, then apply those skills in a complete capstone project.',roadmapNote:'Note: these phases describe the planned curriculum, not completed milestones. The curriculum and session count may evolve with learner progress.',
+          skillsTitle:'Technologies we will explore',skillsDesc:'Four fundamental technologies for building responsive pages, interactive experiences, and scalable modern interfaces.',htmlDesc:'Structure and semantic content',cssDesc:'Styling, motion, and responsiveness',jsDesc:'Logic, interactions, and data',reactDesc:'Components and modern apps',
+          methodTitle:'Our method: understand, then build',methodDesc:'Each topic follows a practical learning cycle, from explanation and experimentation to reviews and GitHub documentation.',
+          projectStatus:'Project idea to be selected',projectTitle:'A capstone that tells a learning story',projectDesc:'The final project idea will be selected later to put HTML, CSS, JavaScript, and React skills into practice. Updates and ongoing development will be shared in the repository.',followProject:'Follow project progress',
+          peopleTitle:'Engineering mentorship and practice',peopleDesc:'A personalized learning journey combining mentor guidance and student effort within the AQL RAQAMI training environment.',mentorRole:'Instructor & engineering mentor',mentorName:'Eng. Hasan Hajjar',mentorDesc:'Founder & Lead, AQL RAQAMI',studentRole:'Student & trainee',studentName:'Hamza Al-Tabbab',studentDesc:'Front-End Development Trainee',
+          certTitle:'Documented learning, practical assessment',certDesc:'After completing the agreed curriculum, practical assignments, and final project assessment, the trainee may receive a Certificate of Training Completion and Practical Skills issued by AQL RAQAMI. The certificate documents completed training and assessed skills; by itself, it does not establish employment experience.',certificateSub:'Illustrative training certificate preview',certificateSample:'SAMPLE • NOT ISSUED',
+          faqTitle:'Frequently asked questions',faqDesc:'Quick answers about the training content, progress tracking, and expected outcomes.',
+          ctaTitle:'Every great project starts with a step.',ctaDesc:'Follow Hamza’s progress, exercises, updates, and upcoming projects directly on GitHub.',ctaButton:'Visit the repository',
+          footerNote:'Mentored by Eng. Hasan Hajjar • Trainee: Hamza Al-Tabbab',footerRoadmap:'Roadmap',backTop:'Back to top ↑',rights:'All rights reserved.',
+          benefits:[
+            ['⌘','Project-based learning','Turn concepts into exercises, web pages, and practical applications.'],
+            ['{ }','Code reviews','Practice clean code, debugging, and continuous improvement.'],
+            ['↗','Structured growth','Start with the fundamentals and steadily tackle more advanced topics.'],
+            ['⑂','GitHub documentation','Track exercises, updates, and projects throughout the journey.']
+          ],
+          roadmap:[
+            ['Web Foundations & HTML','How the web works, VS Code, HTML5, semantic elements, links, tables, and forms.',['HTML5','Semantic HTML','Forms']],
+            ['CSS & Responsive Design','Box model, typography, Flexbox, Grid, media queries, and animations.',['CSS3','Flexbox','Grid']],
+            ['JavaScript Fundamentals','Variables, types, conditions, loops, functions, arrays, and objects.',['ES6+','Functions','Objects']],
+            ['Browser & Advanced JavaScript','DOM manipulation, events, form validation, Fetch API, and async/await.',['DOM','Events','APIs']],
+            ['Building with React','JSX, components, props, state, hooks, forms, and routing.',['React','Components','Hooks']],
+            ['Professional Development Workflow','Git/GitHub, DevTools, accessibility, performance, testing, and deployment.',['Git','GitHub','Deployment']],
+            ['Complete Capstone Project','Concept analysis, planning, UI design, development, testing, docs, and launch.',['Capstone','Portfolio','Launch']]
+          ],
+          workflow:[['Learn','Understand concepts and examples.'],['Practice','Solve hands-on exercises independently.'],['Build','Create reusable components and apps.'],['Review','Improve code through feedback.'],['Document','Track progress on GitHub.']],
+          faqs:[
+            ['Who is this website for?',"It documents Hamza Al-Tabbab's front-end learning journey under the mentorship of Eng. Hasan Hajjar, including goals, curriculum, technologies, and planned projects."],
+            ['Have all training phases been completed?',"No. This page describes the roadmap. Completed work will appear gradually in the repository, README, and commit history."],
+            ['Has the final project been chosen?',"Not yet. Its concept will be selected to meet training objectives, and details will be shared once confirmed."],
+            ['Will there be a training certificate?',"AQL RAQAMI may issue a completion and practical skills certificate after required assignments and assessment. It documents training, not employment history."]
+          ],
+          switchLabel:'التحويل إلى العربية',themeLabel:'Toggle color theme',menuOpen:'Open menu',menuClose:'Close menu'
+        }
+      };
+
+      function safeLoad(key, fallback) { try { return localStorage.getItem(key) || fallback; } catch { return fallback; } }
+      function safeSave(key, value) { try { localStorage.setItem(key, value); } catch {} }
+      let currentLang = safeLoad('aql-front-lang', 'ar') === 'en' ? 'en' : 'ar';
+      let currentTheme = safeLoad('aql-front-theme', 'dark') === 'light' ? 'light' : 'dark';
+      const langButton = document.getElementById('langButton');
+      const themeButton = document.getElementById('themeButton');
+      const menuButton = document.getElementById('menuButton');
+      const navLinks = document.getElementById('navLinks');
+      const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+      function renderCollections(data) {
+        document.getElementById('benefits').innerHTML = data.benefits.map(([symbol, title, text]) => `
+          <article class="card reveal"><div class="benefit-icon" aria-hidden="true">${escapeHtml(symbol)}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('');
+        document.getElementById('roadmapCards').innerHTML = data.roadmap.map(([title, desc, tags], idx) => `
+          <article class="card phase reveal"><span class="phase-number">${String(idx+1).padStart(2,'0')}</span><div class="phase-main"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(desc)}</p><div class="tag-list">${tags.map(tag=>`<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div></div></article>`).join('');
+        document.getElementById('workflowCards').innerHTML = data.workflow.map(([title, desc], idx) => `
+          <article class="card workflow-step reveal"><span class="workflow-n">${String(idx+1).padStart(2,'0')}</span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(desc)}</p></article>`).join('');
+        document.getElementById('faqList').innerHTML = data.faqs.map(([question, answer], idx) => `
+          <div class="faq-item reveal"><h3 style="margin:0"><button type="button" class="faq-question" id="faq-button-${idx}" aria-controls="faq-answer-${idx}" aria-expanded="false"><span>${escapeHtml(question)}</span><span class="chevron" aria-hidden="true">+</span></button></h3><div class="faq-answer" id="faq-answer-${idx}" role="region" aria-labelledby="faq-button-${idx}" hidden>${escapeHtml(answer)}</div></div>`).join('');
+      }
+
+      let revealObserver;
+      function prepareReveal() {
+        if (revealObserver) revealObserver.disconnect();
+        const els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          els.forEach(el => el.classList.add('visible')); return;
+        }
+        revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+        }), {threshold:.08,rootMargin:'0px 0px 40px 0px'});
+        els.forEach(el => revealObserver.observe(el));
+      }
+
+      function applyLanguage() {
+        const data = i18n[currentLang];
+        document.documentElement.lang = currentLang;
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        document.body.dataset.lang = currentLang;
+        document.title = data.title;
+        document.querySelector('meta[name="description"]').content = data.description;
+        document.querySelectorAll('[data-t]').forEach(el => { const key = el.dataset.t; if (typeof data[key] === 'string') el.textContent = data[key]; });
+        langButton.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+        langButton.setAttribute('aria-label', data.switchLabel);
+        themeButton.setAttribute('aria-label', data.themeLabel);
+        themeButton.title = data.themeLabel;
+        menuButton.setAttribute('aria-label', menuButton.getAttribute('aria-expanded') === 'true' ? data.menuClose : data.menuOpen);
+        renderCollections(data);
+        prepareReveal();
+      }
+      function applyTheme() {
+        document.body.dataset.theme = currentTheme;
+        document.getElementById('themeIcon').textContent = currentTheme === 'dark' ? '☀' : '☾';
+        document.querySelector('meta[name="theme-color"]').content = currentTheme === 'dark' ? '#080e1d' : '#f4f8fd';
+      }
+      langButton.addEventListener('click', () => { currentLang = currentLang === 'ar' ? 'en' : 'ar'; safeSave('aql-front-lang', currentLang); applyLanguage(); });
+      themeButton.addEventListener('click', () => { currentTheme = currentTheme === 'dark' ? 'light' : 'dark'; safeSave('aql-front-theme', currentTheme); applyTheme(); });
+      menuButton.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.querySelector('span').textContent = isOpen ? '✕' : '☰';
+        menuButton.setAttribute('aria-label', i18n[currentLang][isOpen ? 'menuClose' : 'menuOpen']);
+      });
+      navLinks.addEventListener('click', event => { if (event.target.closest('a')) { navLinks.classList.remove('open'); menuButton.setAttribute('aria-expanded','false'); menuButton.querySelector('span').textContent='☰'; menuButton.setAttribute('aria-label',i18n[currentLang].menuOpen); }});
+      document.getElementById('faqList').addEventListener('click', event => {
+        const button = event.target.closest('.faq-question'); if (!button) return;
+        const answer = document.getElementById(button.getAttribute('aria-controls'));
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open)); answer.hidden = open;
+      });
+      let scrollTicking = false;
+      function updateScrollProgress() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById('topProgress').style.width = `${max > 0 ? Math.min(100,window.scrollY/max*100) : 0}%`;
+        scrollTicking = false;
+      }
+      window.addEventListener('scroll', () => { if (!scrollTicking) { scrollTicking=true; requestAnimationFrame(updateScrollProgress); } }, {passive:true});
+      window.addEventListener('resize', updateScrollProgress, {passive:true});
+      applyTheme(); applyLanguage(); updateScrollProgress();
+    })();
+  </script>
+</body>
+</html>
