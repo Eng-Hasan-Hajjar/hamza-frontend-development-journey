@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+<!-- الطريقة الأولى: ربط بـ for و id -->
+<label for="username">اسم المستخدم:</label>
+<input type="text" id="username" name="username" />
+
+<!-- الطريقة الثانية: تغليف الحقل داخل label -->
+<label>
+  البريد الإلكتروني:
+  <input type="email" name="email" />
+</label>
+
+
+<label for="country">الدولة:</label>
+<select id="country" name="country">
+  <option value="">-- اختر دولتك --</option>
+  <option value="sa">المملكة العربية السعودية</option>
+  <option value="ae" selected>الإمارات العربية المتحدة</option>
+  <option value="eg">مصر</option>
+  <option value="jo">الأردن</option>
+</select>
+
+<!-- مع تجميع الخيارات -->
+<select name="city">
+  <optgroup label="الخليج">
+    <option value="riyadh">الرياض</option>
+    <option value="dubai">دبي</option>
+  </optgroup>
+  <optgroup label="شمال أفريقيا">
+    <option value="cairo">القاهرة</option>
+  </optgroup>
+
+  <optgroup label=" eruo">
+    <option value="madrid">madrid</option>
+  </optgroup>
+</select>
+
+
+<br>
+
+
+<label for="message">رسالتك:</label>
+<textarea
+  id="message"
+  name="message"
+  rows="6"
+  cols="50"
+  placeholder="اكتب رسالتك هنا..."
+  maxlength="500"
+  required>
+</textarea>
+
+
+
+<fieldset>
+        <legend>البيانات الشخصية</legend>
+        <label for="fname">الاسم الأول:</label>
+        <input type="text" id="fname" name="fname" required />
+        <br><br>
+        <label for="lname">الاسم الأخير:</label>
+        <input type="text" id="lname" name="lname" required />
+</fieldset>
+
+<fieldset>
+  <legend>بيانات الاتصال</legend>
+  <label for="phone">الهاتف:</label>
+  <input type="tel" id="phone" name="phone" />
+</fieldset>
+
+
+
+<!-- التحقق من البريد الإلكتروني -->
+<input type="email" required />
+
+<!-- الحد الأدنى والأقصى لكلمة المرور -->
+<input type="password" minlength="8" maxlength="20" required />
+
+<!-- التحقق برقم هاتف سعودي بنمط معين -->
+<input
+  type="tel"
+  pattern="^90[0-9]{8}$"
+  placeholder="90xxxxxxxx"
+  title="أدخل رقم جوال سعودي صحيح"
+  required
+/>
+
+<!-- التحقق من نطاق العمر -->
+<input type="number" name="age" min="18" max="65" required />
+
+<!-- التحقق من تاريخ مستقبلي -->
+<input type="date" name="booking" min="2026-01-01" required />
+
+
+</body>
+</html>
+
