@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التسجيل في أكاديمية التقنية</title>
+</head>
+<body>
+
+  <header>
+    <h1>🎓 أكاديمية التقنية</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a> |
+      <a href="courses.html">الكورسات</a> |
+      <a href="register.html">التسجيل</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>سجّل في كورس Front-End الآن</h2>
+
+      <!-- جدول المقارنة بين الخطط -->
+      <h3>اختر خطتك:</h3>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+          <tr>
+            <th>الميزة</th>
+            <th>الخطة المجانية</th>
+            <th>الخطة المدفوعة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>عدد الجلسات</td>
+            <td>5 جلسات</td>
+            <td>45 جلسة</td>
+          </tr>
+          <tr>
+            <td>شهادة إتمام</td>
+            <td>❌</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td>السعر</td>
+            <td>مجاني</td>
+            <td>1500 ريال</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- نموذج التسجيل -->
+      <h3>بيانات التسجيل:</h3>
+      <form action="/register" method="post">
+
+        <fieldset>
+          <legend>البيانات الشخصية</legend>
+          <label for="fullname">الاسم الكامل: *</label><br>
+          <input type="text" id="fullname" name="fullname"
+                 placeholder="أحمد محمد العلي" required minlength="5" /><br><br>
+
+          <label for="email">البريد الإلكتروني: *</label><br>
+          <input type="email" id="email" name="email"
+                 placeholder="ahmed@example.com" required /><br><br>
+
+          <label for="phone">رقم الجوال: *</label><br>
+          <input type="tel" id="phone" name="phone"
+                 placeholder="05xxxxxxxx"
+                 pattern="^05[0-9]{8}$"
+                 title="أدخل رقم جوال سعودي (05xxxxxxxx)" required /><br><br>
+
+          <label for="birthdate">تاريخ الميلاد:</label><br>
+          <input type="date" id="birthdate" name="birthdate"
+                 min="1970-01-01" max="2007-12-31" /><br><br>
+        </fieldset>
+
+        <fieldset>
+          <legend>بيانات الكورس</legend>
+
+          <label for="level">مستواك الحالي: *</label><br>
+          <select id="level" name="level" required>
+            <option value="">-- اختر مستواك --</option>
+            <option value="beginner">مبتدئ تماماً</option>
+            <option value="basic">لديّ أساسيات</option>
+            <option value="intermediate">متوسط</option>
+          </select><br><br>
+
+          <p>الخطة المختارة: *</p>
+          <input type="radio" id="free" name="plan" value="free" />
+          <label for="free">الخطة المجانية</label><br>
+          <input type="radio" id="paid" name="plan" value="paid" checked />
+          <label for="paid">الخطة المدفوعة — 1500 ريال</label><br><br>
+
+          <p>اهتماماتك (اختر أكثر من واحد):</p>
+          <input type="checkbox" id="html" name="interests" value="html" checked />
+          <label for="html">HTML</label><br>
+          <input type="checkbox" id="css" name="interests" value="css" />
+          <label for="css">CSS</label><br>
+          <input type="checkbox" id="js" name="interests" value="js" />
+          <label for="js">JavaScript</label><br>
+          <input type="checkbox" id="react" name="interests" value="react" />
+          <label for="react">React</label><br><br>
+
+          <label for="notes">ملاحظات إضافية:</label><br>
+          <textarea id="notes" name="notes" rows="4"
+                    placeholder="أي تفاصيل إضافية تريد مشاركتها..."></textarea>
+        </fieldset>
+
+        <br>
+        <input type="checkbox" id="terms" name="terms" required />
+        <label for="terms">أوافق على <a href="terms.html">الشروط والأحكام</a> *</label>
+        <br><br>
+
+        <button type="submit">📩 إرسال طلب التسجيل</button>
+        <button type="reset">🔄 مسح النموذج</button>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 أكاديمية التقنية | <a href="mailto:info@academy.com">info@academy.com</a></p>
+  </footer>
+
+</body>
+</html>
