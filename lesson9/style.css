@@ -1,0 +1,51 @@
+/* 1. محدد العنصر (Element Selector) */
+/* يُطبَّق على جميع عناصر h2 في الصفحة */
+h1 {
+  color: #2E75B6;
+  font-size: 28px;
+}
+#hero {
+background-image: url("22.jpg");
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+/*background-size: stretch;
+background-size: 100% 100%;*/
+background-repeat: repeat-x;
+background-repeat: repeat-y;
+background-position: top center;
+background-position: bottom center;
+background-position: left center;
+background-position: right center;
+height: 40vh;
+/*background-image: url("22.jpg");*/
+
+background-position: center;
+background-repeat: repeat-x;
+color: #FFF3CD;
+}
+
+/* 2. محدد الفئة (Class Selector) — يبدأ بنقطة . */
+/* يُطبَّق على كل عنصر لديه class="highlight" */
+.highlight {
+  background-color: #0c0a00;
+  padding: 10px;
+  border-right: 4px solid #E8A020;
+  border-top: 12px dashed red;
+}
+
+/* 3. محدد المعرّف (ID Selector) — يبدأ بـ # */
+/* يُطبَّق على العنصر الوحيد id="main-title" */
+#main-title {
+  font-size: 60px;
+  text-align: center;
+  color: #446801;
+}
+
+/* 4. محدد الكل (Universal Selector) */
+/* يُطبَّق على جميع العناصر */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
