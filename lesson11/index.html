@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson11</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="https">hamsa</a>
+    <a href="#">new link</a>
+    <button type="">ddd</button>
+    <input type="text" />
+    <ul>
+      <li>html</li>
+      <li>css</li>
+      <li>javascript</li>
+    </ul>
+    <ol>
+      <li>facbook</li>
+      <li>instefram</li>
+      <li>google</li>
+      <li>whatsapp</li>
+    </ol>
+
+    <table border="2">
+      <thead style="background-color: #b8c40b">
+        <th style="background-color: #b8c40b">id</th>
+        <th style="background-color: #b8c40b">NAME</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>lesson11</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>lesson12</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>lesson13</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Note that it does have methods for adding listeners to the three
+      components. The Farenheit GUI follows. It defines listeners and adds them
+      to its components using the addlistener methods defined in the superclass.
+      It also supplies the update method. The Celsius one is similar. Its only
+      difference is that it uses getC and setC instead of getF and setF. The key
+      to this is the update method of the Observer interface. This is called by
+      the model when it executes the notifyObservers method. Each registered
+      observer is sent an update message. The view responds by querying the
+      model for changed information and then updating itself accordingly. Here
+      we get the new temperature in the desired units and set the display
+      accordingly. The action listeners also update the model by calling its
+      mutators. This lets the user, who sees the view, manipulate the model
+      itself. Note, however, that the listeners don't update the view's display.
+      Instead they wait for the update message that they know will be sent by
+      the newly changed model.
+    </p>
+  </body>
+</html>

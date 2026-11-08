@@ -1,0 +1,94 @@
+/* عند تحريك الماوس فوق الرابط */
+a:hover {
+  color: #dc1515;
+  text-decoration: underline;
+  list-style: none;
+  
+  
+}
+
+/* الرابط الذي زُرته من قبل */
+a:visited {
+  color: #5B2D8E;
+}
+
+/* عند الضغط على الزر */
+button:active {
+  transform: scale(1.5);
+}
+
+/* عند التركيز على حقل إدخال */
+input:focus {
+  outline: 5px dashed #2E75B6;
+  border-color: #2E75B6;
+}
+
+/* العنصر الأول من نوعه */
+li:first-child {
+  font-weight: bold;
+  color: #0355a7;
+}
+
+/* العنصر الأخير من نوعه */
+li:last-child {
+  border-bottom: solid;
+}
+
+/* كل عنصر زوجي (2, 4, 6...) */
+tr:nth-child(even) {
+  background-color: #F0F6FF;
+}
+
+/* كل عنصر فردي (1, 3, 5...) */
+tr:nth-child(odd) {
+  background-color: #8b5151;
+}
+
+/* حقل input غير صالح (فشل التحقق) */
+input:invalid {
+  border-color: #CC0000;
+}
+
+/* حقل input صالح */
+input:valid {
+  border-color: #1E6B3C;
+}
+
+
+
+
+
+/* أول حرف في الفقرة */
+p::first-letter {
+  font-size: 3em;
+  font-weight: bold;
+  color: #E8A020;
+  float: left;
+  margin-left: 8px;
+}
+
+/* أول سطر في الفقرة */
+p::first-line {
+  font-weight: bold;
+  color: #1A3C5E;
+}
+
+/* إضافة محتوى قبل العنصر */
+.required-field::before {
+  content: "* ";
+  color: #CC0000;
+  font-weight: bold;
+}
+
+/* إضافة محتوى بعد العنصر */
+.external-link::after {
+  content: " ↗";
+  font-size: 0.8em;
+  color: #5A6A7A;
+}
+
+/* تنسيق النص المحدد (selection) */
+::selection {
+  background-color: #2E75B6;
+  color: white;
+}
