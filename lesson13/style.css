@@ -1,0 +1,46 @@
+/* أمثلة شاملة على الألوان */
+body {
+  background-color: #70a9ff;   /* HEX — ألوان دقيقة جداً */
+
+
+    /* نوع الخط — بترتيب الأفضلية */
+  font-family: "Segoe UI", Arial, Tahoma, sans-serif;
+
+  /* حجم الخط */
+  font-size: 16px;        /* بيكسل */
+  font-size: 1rem;        /* نسبة إلى حجم الخط الجذر (عادة 16px) */
+  font-size: 1.2em;       /* نسبة إلى الخط الأب */
+
+  /* وزن الخط (السماكة) */
+  font-weight: normal;    /* = 400 */
+  font-weight: bold;      /* = 700 */
+  font-weight: 300;       /* خفيف */
+  font-weight: 900;       /* أثقل */
+
+  /* نمط الخط */
+  font-style: normal;     /* عادي */
+ /* font-style: italic;     /* مائل */
+ /* font-style: oblique;     مائل قسري */
+
+}
+
+h1 {
+  color: rgb(222, 237, 7);      /* RGB — نفس #1A3C5E */
+}
+
+.overlay {
+  background-color: rgba(239, 10, 10, 0.114);  /* أسود بشفافية 60% */
+}
+
+.btn-primary {
+  background-color: hsl(81, 99%, 2%);  /* HSL — سهل التعديل */
+}
+
+/* خلفية متدرجة (Gradient) */
+.hero {
+  background: linear-gradient(35deg, #f41212, #2E75B6);
+}
+
+.card {
+  background: radial-gradient( #ffffff, #0754a2);
+}

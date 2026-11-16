@@ -1,0 +1,51 @@
+/* في ملف CSS */
+body {
+  font-family: "Cairo", "Tajawal", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.new{
+    direction:rtl ;
+}
+.box {
+  /* العرض والارتفاع */
+  width: 300px;           /* عرض ثابت */
+  height: 200px;          /* ارتفاع ثابت */
+  width: 50%;             /* 50% من عرض الأب */
+         /* حد أقصى للعرض */
+  min-width: 200px;       /* حد أدنى للعرض */
+  max-width: 200px;
+  max-height: 200px;      /* حد أقصى للارتفاع */
+  min-height: 100px;      /* حد أدنى للارتفاع */
+  width: 50%;  
+
+  background-color: aqua;
+}
+
+
+.paddd{
+      /* الطريقة المختصرة */
+  padding: 20px;              /* جميع الجهات: أعلى يمين أسفل يسار */
+  padding: 20px 40px;         /* أعلى-أسفل: 20px | يمين-يسار: 40px */
+  padding: 10px 20px 30px;    /* أعلى: 10 | يمين-يسار: 20 | أسفل: 30 */
+  padding: 10px 20px 30px 40px; /* أعلى يمين أسفل يسار (عكس عقارب الساعة) */
+
+  /* الطريقة التفصيلية */
+  padding-top: 100px;
+  padding-right: 200px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+
+
+  padding: 200px 1000px 10px 1000px;
+}
